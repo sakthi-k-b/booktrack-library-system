@@ -1,0 +1,65 @@
+{% extends "layout_ext3.html" %}
+
+{% block body %}
+    <!-- <nav>
+        <span>Hi, {{username}}</span>
+        <span><a href="/logout">logout</a></span>
+    </nav>
+
+    <section>
+        <h2>Books Borrowed</h2>
+        <div id="borrowList"></div>
+    </section>
+
+    <section>
+        <h2>Books Database</h2>
+        <search><input autocomplete="off" autofocus type="text" placeholder="search by title or category" id="search"></search>
+        <div id="list"></div>
+    </section> -->
+    
+
+    <div class="container">
+
+  <!-- Signed-in User Banner -->
+  <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 
+              rounded-lg px-5 py-4 shadow flex items-center mb-6">
+    <span class="text-gray-500 dark:text-gray-400 text-lg">
+      Signed in as
+    </span>
+    <span class="text-lg font-semibold text-indigo-700 dark:text-teal-400 ml-2">
+      {{username}}
+    </span>
+  </div>
+
+  <!-- Borrowed Books Section -->
+  <details open>
+    <summary>Borrowed Books</summary>
+    <div class="p-2 sm:p-4 lg:p-6">
+      <div id="borrowList" class="table-container"></div>
+    </div>
+  </details>
+
+  <!-- Books Database Section -->
+  <details open>
+    <summary>Books Database</summary>
+    <div class="p-2 sm:p-4 lg:p-6 space-y-2">
+      <input
+        id="search"
+        type="text"
+        autocomplete="off"
+        autofocus
+        placeholder="Search by title or category"
+        class="input-field w-full mb-2"
+      >
+      <div id="list" class="table-container"></div>
+    </div>
+  </details>
+
+</div>
+
+
+
+
+    <script src="{{ url_for('static', filename='user_script.js') }}"></script>
+
+{% endblock %}

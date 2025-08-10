@@ -1,0 +1,209 @@
+{% extends "layout_ext3.html" %}
+
+{% block body %}
+    <!-- <nav>
+        <span>Admin Control Panel</span>
+        <span><a href="/logout">logout</a></span>
+    </nav> -->
+
+    <!-- <h1>Hi, {{admin_username}}!</h1>
+
+    <div>
+        <section>
+            <h3>Add Borrow</h3>
+            <input autocomplete="off" autofocus type="text" placeholder="BOOK ID" id="add-borrow-book-id">
+            <input autocomplete="off" autofocus type="text" placeholder="USER ID" id="add-borrow-user-id">
+            <input autocomplete="off" autofocus type="text" placeholder="DUE DATE" id="due-date">
+            <button id="addBorrow">ADD BORROW</button>
+            <p id="msg-add-borrow"></p>
+        </section>
+        
+        
+        <section>
+            <h3>Remove Borrow</h3>
+            <input autocomplete="off" autofocus type="text" placeholder="BOOK ID" id="remove-borrow-book-id">
+            <button id="removeBorrow">REMOVE BORROW</button>
+            <p id="msg-remove-borrow"></p>
+        </section>
+
+        <section>
+            <h2>
+                <span>Borrowed Books</span>
+                <span>
+                    <select id="borrowFilter">
+                        <option value="all" selected>All</option>
+                        <option value="past">Past Due</option>
+                        <option value="today">Due Today</option>
+                    </select>
+                </span>
+            </h2>
+            <div id="borrowList"></div>
+        </section>
+    </div>
+    
+    <div>
+        <section>
+            <h2>Add Book</h2>
+            <input autocomplete="off" autofocus type="text" placeholder="TITLE" id="title-add">
+            <input autocomplete="off" autofocus type="text" placeholder="CATEGORY" id="category-add">
+            <button id="addBook">ADD BOOK</button>
+        </section>
+        
+        <section>
+            <h2>Delete Book</h2>
+            <input autocomplete="off" autofocus type="text" placeholder="ID" id="id-delete">
+            <button id="deleteBook">DELETE BOOK</button>
+        </section>
+        
+        <section>
+            <h2>Update Book</h2>
+            <input autocomplete="off" autofocus type="text" placeholder="ID" id="id-update">
+            <input autocomplete="off" autofocus type="text" placeholder="TITLE" id="title-update">
+            <input autocomplete="off" autofocus type="text" placeholder="CATEGORY" id="category-update">
+            <button id="updateBook">UPDATE BOOK</button>
+        </section>
+        
+        <section>
+            <h2>Books Database</h2>
+            <search><input autocomplete="off" autofocus type="text" placeholder="search by title or category" id="search"></search>
+            <div id="list"></div>
+        </section>
+    </div>
+    
+    <div>
+        <section>
+            <h2>User Database</h2>
+            <div id="userList"></div>
+        </section>
+    </div> -->
+
+  
+    <div class="container">
+
+<!-- Admin Heading -->
+    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 
+                rounded-lg px-6 py-4 shadow mb-6">
+      <h1 class="text-2xl font-bold text-indigo-700 dark:text-teal-400">
+        Library Administration Dashboard
+      </h1>
+      <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">
+        Manage books, users, and borrowing records with full administrative privileges.
+      </p>
+    </div>
+
+  <!-- Borrow Management -->
+  <details open>
+    <summary>Borrow Management</summary>
+    <div class="grid-layout">
+
+      <!-- Left: Add + Remove Borrow -->
+      <div class="space-y-4">
+        <!-- Add Borrow -->
+        <div class="space-y-2">
+          <h4 class="font-medium">Add Borrow</h4>
+          <input type="text" placeholder="BOOK ID" id="add-borrow-book-id" class="input-field w-full">
+          <input type="text" placeholder="USER ID" id="add-borrow-user-id" class="input-field w-full">
+          <input type="text" placeholder="DUE DATE" id="due-date" class="input-field w-full">
+          <p id="msg-add-borrow" class="msg"></p>
+          <button id="addBorrow" class="action-btn w-full">ADD BORROW</button>
+        </div>
+        <!-- Remove Borrow -->
+        <div class="space-y-2">
+          <h4 class="font-medium">Remove Borrow</h4>
+          <input type="text" placeholder="BOOK ID" id="remove-borrow-book-id" class="input-field w-full">
+          <p id="msg-remove-borrow" class="msg"></p>
+          <button id="removeBorrow" class="action-btn-alt w-full">REMOVE BORROW</button>
+        </div>
+      </div>
+
+      <!-- Right: Borrowed Books Table -->
+      <div class="mt-4 sm:mt-0">
+        <div class="flex justify-between items-center mb-2">
+          <span class="font-medium">Borrowed Books</span>
+          <select id="borrowFilter" class="border border-gray-300 dark:border-gray-500 px-2 py-0.5 rounded text-sm bg-white dark:bg-gray-800 dark:text-gray-100">
+            <option value="all" selected>All</option>
+            <option value="past">Past Due</option>
+            <option value="today">Due Today</option>
+          </select>
+        </div>
+        <div id="borrowList" class="table-container"></div>
+      </div>
+    </div>
+  </details>
+
+
+  <!-- Books Management -->
+  <details open>
+    <summary>Books Management</summary>
+    <div class="grid-layout">
+
+      <!-- Left: Controls -->
+      <div class="space-y-4">
+        <!-- Add Book -->
+        <div class="space-y-2">
+          <h4 class="font-medium">Add Book</h4>
+          <input type="text" placeholder="TITLE" id="title-add" class="input-field w-full">
+          <input type="text" placeholder="CATEGORY" id="category-add" class="input-field w-full">
+          <p id="msg-add-book" class="msg"></p>
+          <button id="addBook" class="action-btn w-full">ADD BOOK</button>
+        </div>
+
+        <!-- Delete Book -->
+        <div class="space-y-2">
+          <h4 class="font-medium">Delete Book</h4>
+          <input type="text" placeholder="ID" id="id-delete" class="input-field w-full">
+          <p id="msg-delete-book" class="msg"></p>
+          <button id="deleteBook" class="action-btn-alt w-full">DELETE BOOK</button>
+        </div>
+
+        <!-- Update Book -->
+        <div class="space-y-2">
+          <h4 class="font-medium">Update Book</h4>
+          <input type="text" placeholder="ID" id="id-update" class="input-field w-full">
+          <input type="text" placeholder="TITLE" id="title-update" class="input-field w-full">
+          <input type="text" placeholder="CATEGORY" id="category-update" class="input-field w-full">
+          <p id="msg-update-book" class="msg"></p>
+          <button id="updateBook" class="action-btn-alt w-full">UPDATE BOOK</button>
+        </div>
+      </div>
+
+      <!-- Right: Book List -->
+      <div class="mt-4 sm:mt-0 space-y-2">
+        <h4 class="font-medium">Books Database</h4>
+        <input type="text" placeholder="Search by title or category" id="search" class="input-field w-full mb-2">
+        <div id="list" class="table-container"></div>
+      </div>
+    </div>
+  </details>
+
+
+  <!-- User Management -->
+  <details open>
+    <summary>User Management</summary>
+    <div class="grid-layout">
+
+      <!-- Left: Controls -->
+      <div class="space-y-4">
+        <!-- Remove User -->
+        <div class="space-y-2">
+          <h4 class="font-medium">Remove User</h4>
+          <input type="text" placeholder="ID" id="id-remove-user" class="input-field w-full">
+          <p id="msg-remove-user" class="msg"></p>
+          <button id="removeUser" class="action-btn-alt w-full">REMOVE USER</button>
+        </div>
+      </div>
+
+      <!-- Right: User List -->
+      <div class="mt-4 sm:mt-0 space-y-2">
+        <h4 class="font-medium">User Database</h4>
+        <input type="text" placeholder="Search by id or username" id="search-user" class="input-field w-full mb-2">
+        <div id="userList" class="table-container"></div>
+      </div>
+    </div>
+  </details>
+
+</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+{% endblock %}

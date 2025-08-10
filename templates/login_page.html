@@ -1,0 +1,69 @@
+{% extends "layout_ext1.html" %}
+
+{% block body %}
+    <!-- <nav>
+        <span>Library System</span>
+        <span><a href="/">Home</a></span>
+    </nav>
+    
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <input name="username" autocomplete="off" autofocus type="text" placeholder="username" >
+        <input name="password" autocomplete="off" autofocus type="text" placeholder="password" >
+        <button type="submit">login</button>
+    </form> -->
+
+
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900 dark:text-gray-100">
+      Sign In
+    </h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form action="/login" method="POST" class="space-y-6">
+
+      <!-- Username -->
+      <div>
+        <label for="username" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-200">
+          Username
+        </label>
+        <div class="mt-2">
+          <input id="username" type="text" name="username" required autocomplete="username"
+            class="input-field" />
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-200">
+          Password
+        </label>
+        <div class="mt-2">
+          <input id="password" type="password" name="password" required autocomplete="current-password"
+            class="input-field" />
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" class="action-btn w-full justify-center">
+          Sign In
+        </button>
+      </div>
+    </form>
+
+    <!-- Sign Up link -->
+    <p class="mt-10 text-center text-sm/6 text-gray-500 dark:text-gray-400">
+      Not a member?
+      <a href="/register-page"
+        class="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-teal-400 dark:hover:text-teal-300">
+        Sign Up
+      </a>
+    </p>
+  </div>
+</div>
+
+
+{% endblock %}

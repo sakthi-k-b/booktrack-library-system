@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
+
+    <title>Booktrack</title>
+</head>
+<body>
+    {% block layout %} {% endblock %}
+    <script src="{{ url_for('static', filename='toggle.js') }}"></script>
+    <script src="{{ url_for('static', filename='theme-toggle.js') }}"></script>
+    </body>
+</html>

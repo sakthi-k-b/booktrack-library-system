@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block layout %}
+
+<nav class="sticky top-0 z-50 bg-indigo-700 text-white dark:bg-gray-950 dark:text-teal-400 shadow-md">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+
+      <!-- Mobile menu button -->
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <button id="menu-toggle" type="button"
+          class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 dark:text-teal-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-teal-400 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:focus:ring-teal-400">
+          <!-- Open icon -->
+          <svg id="icon-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!-- Close icon -->
+          <svg id="icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Logo and Title -->
+      <div class="flex flex-1 items-center justify-center sm:justify-start">
+        <!-- Logo and Title Container -->
+        <div class="flex items-center space-x-3 select-none">
+
+          <!-- Logo SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              class="text-white dark:text-teal-400" viewBox="0 0 16 13" fill="currentColor"
+              aria-label="Booktrack logo" role="img" focusable="false">
+            <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 
+                1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81
+                -1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81
+                4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 
+                0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 
+                2.303-.881 3.68-1.02 1.409-.142 2.59.087 
+                3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019
+                3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 
+                0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952
+                -3.994-1.105C10.413.809 8.985.936 8 1.783" />
+          </svg>
+
+          <!-- Title Text -->
+          <h1 class="text-white dark:text-teal-300 text-xl font-semibold tracking-wide select-text">
+            Booktrack
+          </h1>
+        </div>
+
+        <!-- Right: logout (visible on sm and up) -->
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <a href="/logout"
+              class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 dark:text-teal-400 hover:bg-indigo-800 dark:hover:bg-teal-400 hover:text-white dark:hover:text-white">
+              logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden sm:hidden px-2 pt-2 pb-3 space-y-1 bg-indigo-700 dark:bg-gray-950">
+    <a href="/logout"
+      class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 dark:text-teal-400 hover:bg-indigo-800 dark:hover:bg-teal-400 hover:text-white dark:hover:text-white">
+      logout
+    </a>
+  </div>
+</nav>
+
+{% block body %} {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,106 @@
+@custom-variant dark (&:where(.dark, .dark *));
+@import "tailwindcss";
+
+@layer utilities {
+  .input-field {
+    @apply border border-gray-300 px-3 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-indigo-600;
+    @apply dark:border-gray-500 dark:bg-gray-800 dark:text-gray-100 dark:focus:ring-teal-400;
+  }
+
+  .action-btn {
+    @apply bg-indigo-700 text-white font-semibold px-4 py-2 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-teal-400 transition duration-200;
+    @apply dark:bg-teal-300 dark:text-gray-900 dark:hover:bg-teal-200 dark:focus:ring-indigo-600;
+  }
+
+  /* alt button: use lighter indigo instead of teal in light mode */
+  .action-btn-alt {
+    @apply bg-indigo-100 text-indigo-900 font-medium px-4 py-2 rounded-md border border-indigo-200 hover:bg-indigo-200 transition duration-200;
+    @apply dark:bg-gray-700 dark:text-gray-100 dark:border-gray-500 dark:hover:bg-gray-800;
+  }
+
+  .card {
+    @apply bg-white border border-gray-200 rounded-lg shadow-md p-6;
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 lg:pt-8 text-sm;
+    @apply dark:text-gray-200;
+  }
+
+  .table-container {
+    @apply max-h-100 overflow-y-auto;
+  }
+
+  .grid-layout {
+    @apply p-2 sm:p-4 lg:p-6 sm:grid sm:grid-cols-2 sm:gap-6 lg:gap-8;
+  }
+
+  nav {
+    @apply bg-indigo-700 text-white shadow-md px-4 py-2;
+    @apply dark:bg-gray-950 dark:text-teal-400;
+  }
+
+  /* msg text: lighter indigo in light mode */
+  .msg {
+    @apply text-sm text-indigo-500;
+    @apply dark:text-teal-300;
+  }
+
+  details {
+    @apply bg-white border border-gray-200 rounded-md shadow-md p-4 mb-4;
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100;
+    border-left-width: 4px;
+    @apply border-l-indigo-500 dark:border-l-teal-400;
+  }
+
+  summary {
+    @apply cursor-pointer font-semibold text-indigo-700 sm:text-lg;
+    @apply dark:text-teal-400;
+  }
+
+  :where(:not(.dark)) details[open] summary {
+    @apply text-indigo-700;
+  }
+  .dark details[open] summary {
+    @apply text-teal-300;
+  }
+
+  /* removed ring from summary focus */
+  summary:focus {
+    @apply rounded;
+  }
+
+  /* Table headers: lighter indigo in light mode */
+  thead {
+    @apply bg-indigo-50 text-indigo-900 border-b border-indigo-200;
+    @apply dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600;
+  }
+
+  thead th {
+    @apply px-4 py-2 text-left font-semibold;
+  }
+
+  tbody {
+    @apply bg-white text-indigo-900;
+    @apply dark:bg-gray-900 dark:text-gray-200;
+  }
+
+  tbody tr {
+    @apply border-b border-indigo-100 hover:bg-indigo-50;
+    @apply dark:border-gray-700 dark:hover:bg-gray-800;
+  }
+
+  tbody td {
+    @apply px-4 py-2;
+  }
+
+  table {
+    @apply w-full rounded-lg table-auto;
+  }
+
+  body {
+    @apply bg-indigo-50 font-sans text-indigo-900;
+    @apply dark:bg-gray-900 dark:text-gray-100;
+  }
+}
